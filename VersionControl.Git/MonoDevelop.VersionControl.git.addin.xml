@@ -1,0 +1,70 @@
+<Addin	id="VersionControl.Git"
+		namespace	= "MonoDevelop"
+		name		= "Git support for the Version Control add-in"
+		author		= "Paulo Nobre"
+		copyright	= "MIT license"
+		url			= "http://www.paulonobre.net"
+		description	= "Git support for the Version Control add-in"
+		category	= "Version Control"
+		version		= "0.1">
+		
+		<Runtime>
+			<Import assembly = "MonoDevelop.VersionControl.Git.dll" />
+		</Runtime>
+		
+		<Dependencies>
+			<Addin id = "Core" version = "2.2"/>
+		    <Addin id = "Core.Gui" version = "2.2"/>
+			<Addin id = "Projects" version = "2.2"/>
+		    <Addin id = "Ide" version = "2.2"/>
+		    <Addin id = "VersionControl" version = "2.2"/>
+		</Dependencies>
+		
+		<Extension path  = "/MonoDevelop/VersionControl/VersionControlSystems">
+			<Class class = "MonoDevelop.VersionControl.Git.GitVersionControl" />
+		</Extension>
+
+    <Extension path = "/MonoDevelop/Ide/Pads/ProjectPad">
+      <NodeBuilder class = "MonoDevelop.VersionControl.Git.GitNodeExtension" insertbefore="VersionControlNodeExtension" />
+    </Extension>
+  
+		<Extension path = "/MonoDevelop/Ide/Commands">
+			<Category _name = "Version Control" id="VersionControl">
+				<Command 	id 				= "MonoDevelop.VersionControl.Git.Commands.InitializeRepository"
+							_label			= "_New GIT Repository"
+							description		= "Initialize an empty GIT repository" />
+				<Command	id				= "MonoDevelop.VersionControl.Git.Commands.CloneRepository"
+							_label			= "_Clone GIT Repository"
+							description		= "Clone an existing GIT repository" />				
+			</Category>
+		</Extension>
+
+  <Extension path = "/MonoDevelop/Ide/ContextMenu/ProjectPad/VersionControl">
+    <!--Condition id="ItemType" value="Project|WorkspaceItem">
+      <CommandItem id = "MonoDevelop.VersionControl.Git.GitCommandHandler.Resolve" insertafter="MonoDevelop.VersionControl.Commands.Revert" />
+      <CommandItem id = "MonoDevelop.VersionControl.Bazaar.BazaarCommands.Pull" insertafter="MonoDevelop.VersionControl.Commands.Update" />
+      <CommandItem id = "MonoDevelop.VersionControl.Bazaar.BazaarCommands.Merge" insertafter="MonoDevelop.VersionControl.Bazaar.BazaarCommands.Pull" />
+      <CommandItem id = "MonoDevelop.VersionControl.Bazaar.BazaarCommands.Bind" insertafter="MonoDevelop.VersionControl.Bazaar.BazaarCommands.Merge" />
+      <CommandItem id = "MonoDevelop.VersionControl.Bazaar.BazaarCommands.Unbind" insertafter="MonoDevelop.VersionControl.Bazaar.BazaarCommands.Bind" />
+      <CommandItem id = "MonoDevelop.VersionControl.Bazaar.BazaarCommands.Uncommit" insertafter="MonoDevelop.VersionControl.Commands.Commit" />
+      <CommandItem id = "MonoDevelop.VersionControl.Bazaar.BazaarCommands.Export" insertafter="MonoDevelop.VersionControl.Commands.Log" />
+    </Condition>
+    <Condition id="ItemType" value="IFileItem">
+      <CommandItem id = "MonoDevelop.VersionControl.Bazaar.BazaarCommands.Resolve" insertafter="MonoDevelop.VersionControl.Commands.Revert" />
+      <CommandItem id = "MonoDevelop.VersionControl.Bazaar.BazaarCommands.Ignore" insertafter="MonoDevelop.VersionControl.Commands.Revert" />
+    </Condition-->
+    <Condition id="ItemType" value="Project|Solution">
+      <CommandItem id = "MonoDevelop.VersionControl.Git.Commands.InitializeRepository" />
+    </Condition>
+  </Extension>
+  
+		<Extension path = "/MonoDevelop/Ide/MainMenu/File">
+			<SeparatorItem 	id			= "NewGitRepository" 
+							        insertafter = "MonoDevelop.Ide.Commands.FileCommands.OpenFile" />
+			<ItemSet 		id			= "GIT" 
+							_label		= "_GIT">
+				<CommandItem id = "MonoDevelop.VersionControl.Git.Commands.InitializeRepository" />
+				<CommandItem id = "MonoDevelop.VersionControl.Git.Commands.CloneRepository" />
+			</ItemSet>
+		</Extension>
+</Addin>
