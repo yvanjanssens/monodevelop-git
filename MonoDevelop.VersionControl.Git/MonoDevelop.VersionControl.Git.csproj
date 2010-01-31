@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -17,7 +17,6 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
@@ -76,17 +75,21 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Program Files %28x86%29\MonoDevelop\bin\MonoDevelop.Components.dll</HintPath>
     </Reference>
+    <Reference Include="Mono.Posix, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756" />
+    <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CloneRepositoryCommand.cs" />
     <Compile Include="GitCommandHandler.cs" />
     <Compile Include="GitRevision.cs" />
     <Compile Include="GitStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GitRepository.cs" />
     <Compile Include="Commands.cs" />
-    <Compile Include="CloneRepositoryCommand.cs" />
-    <Compile Include="InitializeRepositoryCommand.cs" />
     <Compile Include="GitVersionControl.cs" />
+    <Compile Include="gtk-gui\generated.cs" />
+    <Compile Include="CloneRepositoryDialog.cs" />
+    <Compile Include="gtk-gui\MonoDevelop.VersionControl.Git.CloneRepositoryDialog.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -98,6 +101,9 @@
   -->
   <ItemGroup>
     <EmbeddedResource Include="MonoDevelop.VersionControl.git.addin.xml" />
+    <EmbeddedResource Include="gtk-gui\gui.stetic">
+      <LogicalName>gui.stetic</LogicalName>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

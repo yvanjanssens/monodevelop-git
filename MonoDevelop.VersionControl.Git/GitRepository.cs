@@ -69,7 +69,9 @@ namespace MonoDevelop.VersionControl.Git
 
 		public override bool IsModified(FilePath localFile)
 		{
-			return false;
+			var versionInfo = GetVersionInfo(localFile, false);
+
+			return (versionInfo != null && versionInfo.HasLocalChanges);
 		}
 
 		public override bool CanAdd(FilePath localPath)
@@ -79,17 +81,12 @@ namespace MonoDevelop.VersionControl.Git
 
 		public override bool CanCommit(FilePath localPath)
 		{
-			return false;
-		}
-
-		public override bool CanRemove(FilePath localPath)
-		{
-			return false;
+			return IsModified(localPath);
 		}
 
 		public override bool CanGetAnnotations(FilePath localPath)
 		{
-			return false;
+			return IsVersioned(localPath);
 		}
 
 		public override bool CanLock(FilePath localPath)
@@ -97,14 +94,9 @@ namespace MonoDevelop.VersionControl.Git
 			return false;
 		}
 
-		public override bool CanMoveFilesFrom(Repository srcRepository, FilePath localSrcPath, FilePath localDestPath)
-		{
-			return false;
-		}
-
 		public override bool CanRevert(FilePath localPath)
 		{
-			return false;
+			return IsModified(localPath);
 		}
 
 		public override bool CanUnlock(FilePath localPath)
@@ -112,9 +104,9 @@ namespace MonoDevelop.VersionControl.Git
 			return false;
 		}
 
-		public override bool CanUpdate(FilePath localPath)
+		public override void NotifyFileChanged(FilePath path)
 		{
-			return false;
+			_cachedStatus = null;
 		}
 
 		public override void Add(FilePath[] localPaths, bool recurse, IProgressMonitor monitor)
@@ -140,7 +132,9 @@ namespace MonoDevelop.VersionControl.Git
 			throw new NotImplementedException();
 		}
 
-		public override VersionInfo[] GetDirectoryVersionInfo(FilePath localDirectory, bool getRemoteStatus, bool recursive)
+		public override VersionInfo[] GetDirectoryVersionInfo(FilePath localDirectory, 
+			bool getRemoteStatus, 
+			bool recursive)
 		{
 			return null;
 		}
@@ -177,7 +171,11 @@ namespace MonoDevelop.VersionControl.Git
 			return vi;
 		}
 
-		public override Repository Publish(string serverPath, FilePath localPath, FilePath[] files, string message, IProgressMonitor monitor)
+		public override Repository Publish(string serverPath, 
+			FilePath localPath, 
+			FilePath[] files, 
+			string message, 
+			IProgressMonitor monitor)
 		{
 			throw new NotImplementedException();
 		}
@@ -224,7 +222,8 @@ namespace MonoDevelop.VersionControl.Git
 			if (commit != null)
 				st.Revision = commit.ToString();
 			
-			string relativePath = (localPath.ToRelative(_coreRepository.WorkingDirectory.FullName)).ToString().Replace('\\', '/');
+			string relativePath = (localPath.ToRelative(_coreRepository.WorkingDirectory.FullName)).ToString()
+				.Replace('\\', '/');
 			if (CachedStatus.Untracked.Contains(relativePath))
 				st.VersionStatus = VersionStatus.Unversioned;
 			if (CachedStatus.Added.Contains(relativePath))

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -47,15 +47,10 @@ namespace MonoDevelop.VersionControl.Git {
 			}
 		}
 
-		[CommandUpdateHandler(Commands.CloneRepository)]
-		virtual protected void CanCloneRepository(CommandInfo info)
+		[CommandUpdateHandler(MonoDevelop.VersionControl.Commands.Publish)]
+		virtual protected void CanPublish(CommandInfo info)
 		{
-			info.Enabled = true;
-		}
-
-		[CommandHandler(Commands.CloneRepository)]
-		virtual protected void OnCloneRepository()
-		{
+			info.Visible = false;
 		}
 
 		private Core.FilePath[] GetAllFiles(IWorkspaceObject item)

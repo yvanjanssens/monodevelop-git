@@ -42,8 +42,6 @@ namespace MonoDevelop.VersionControl.Git {
 
 		public bool IsVersioned(FilePath localPath)
 		{
-			if (localPath == null) return false;
-
 			string repPath = string.Empty;
 			if (File.Exists(localPath))
 				repPath = FindRepositoryPath(Path.GetDirectoryName(localPath));

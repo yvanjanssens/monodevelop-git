@@ -30,12 +30,13 @@
   
 		<Extension path = "/MonoDevelop/Ide/Commands">
 			<Category _name = "Version Control" id="VersionControl">
-				<Command 	id 				= "MonoDevelop.VersionControl.Git.Commands.InitializeRepository"
-							_label			= "_New GIT Repository"
-							description		= "Initialize an empty GIT repository" />
-				<Command	id				= "MonoDevelop.VersionControl.Git.Commands.CloneRepository"
-							_label			= "_Clone GIT Repository"
-							description		= "Clone an existing GIT repository" />				
+				<Command 	id 				  = "MonoDevelop.VersionControl.Git.Commands.InitializeRepository"
+							_label			    = "_New GIT Repository"
+							description		  = "Initialize an empty GIT repository" />
+				<Command	id				  = "MonoDevelop.VersionControl.Git.Commands.CloneRepository"
+							_label			    = "_Clone GIT Repository"
+							description		  = "Clone an existing GIT repository"
+              defaultHandler  = "MonoDevelop.VersionControl.Git.CloneRepositoryCommand"/>				
 			</Category>
 		</Extension>
 
