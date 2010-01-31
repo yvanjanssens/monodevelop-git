@@ -11,7 +11,7 @@
     <widget-library name="..\..\..\monodevelop\main\build\AddIns\VersionControl\MonoDevelop.VersionControl.dll" />
     <widget-library name="..\bin\Debug\MonoDevelop.VersionControl.Git.dll" internal="true" />
   </import>
-  <widget class="Gtk.Dialog" id="MonoDevelop.VersionControl.Git.CloneRepositoryDialog" design-size="377 143">
+  <widget class="Gtk.Dialog" id="MonoDevelop.VersionControl.Git.CloneRepositoryDialog" design-size="377 169">
     <property name="MemberName" />
     <property name="Title" translatable="yes">Clone Repository Dialog</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -28,7 +28,7 @@
         <child>
           <widget class="Gtk.Table" id="table1">
             <property name="MemberName" />
-            <property name="NRows">2</property>
+            <property name="NRows">3</property>
             <property name="NColumns">2</property>
             <property name="RowSpacing">6</property>
             <property name="ColumnSpacing">6</property>
@@ -36,6 +36,28 @@
               <widget class="MonoDevelop.Components.FolderEntry" id="editFolderEntry">
                 <property name="MemberName" />
                 <property name="BrowserTitle">Select working directory</property>
+              </widget>
+              <packing>
+                <property name="TopAttach">2</property>
+                <property name="BottomAttach">3</property>
+                <property name="LeftAttach">1</property>
+                <property name="RightAttach">2</property>
+                <property name="AutoSize">True</property>
+                <property name="XOptions">Fill</property>
+                <property name="YOptions">Fill</property>
+                <property name="XExpand">False</property>
+                <property name="XFill">True</property>
+                <property name="XShrink">False</property>
+                <property name="YExpand">False</property>
+                <property name="YFill">True</property>
+                <property name="YShrink">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Entry" id="entryOriginName">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="IsEditable">True</property>
               </widget>
               <packing>
                 <property name="TopAttach">1</property>
@@ -54,7 +76,7 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Entry" id="editRepositoryPath">
+              <widget class="Gtk.Entry" id="entryRepositoryPath">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">True</property>
@@ -74,9 +96,28 @@
               </packing>
             </child>
             <child>
+              <widget class="Gtk.Label" id="labelOriginName">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">Origin Name</property>
+              </widget>
+              <packing>
+                <property name="TopAttach">1</property>
+                <property name="BottomAttach">2</property>
+                <property name="AutoSize">True</property>
+                <property name="XOptions">Fill</property>
+                <property name="YOptions">Fill</property>
+                <property name="XExpand">False</property>
+                <property name="XFill">True</property>
+                <property name="XShrink">False</property>
+                <property name="YExpand">False</property>
+                <property name="YFill">True</property>
+                <property name="YShrink">False</property>
+              </packing>
+            </child>
+            <child>
               <widget class="Gtk.Label" id="labelRepositoryPath">
                 <property name="MemberName" />
-                <property name="LabelProp" translatable="yes">Repository Path:</property>
+                <property name="LabelProp" translatable="yes">Repository Path</property>
                 <property name="Justify">Fill</property>
               </widget>
               <packing>
@@ -94,12 +135,12 @@
             <child>
               <widget class="Gtk.Label" id="labelWorkingDirectory">
                 <property name="MemberName" />
-                <property name="LabelProp" translatable="yes">Working Directory:</property>
+                <property name="LabelProp" translatable="yes">Working Directory</property>
                 <property name="Justify">Fill</property>
               </widget>
               <packing>
-                <property name="TopAttach">1</property>
-                <property name="BottomAttach">2</property>
+                <property name="TopAttach">2</property>
+                <property name="BottomAttach">3</property>
                 <property name="AutoSize">True</property>
                 <property name="XOptions">Fill</property>
                 <property name="YOptions">Fill</property>

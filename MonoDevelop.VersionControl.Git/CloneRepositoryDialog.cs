@@ -26,12 +26,17 @@ namespace MonoDevelop.VersionControl.Git
 		
 		public string RepositoryPath 
 		{
-			get { return editRepositoryPath.Text; }
+			get { return entryRepositoryPath.Text; }
 		}
 		
 		public string WorkingDirectory 
 		{
 			get { return editFolderEntry.Path; }
+		}
+		
+		public string OriginName 
+		{
+			get { return entryOriginName.Text; }
 		}
 	}
 }
