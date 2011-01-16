@@ -3,19 +3,19 @@
 		name		= "Git support for the Version Control add-in"
 		author		= "Yvan JANSSENS"
 		copyright	= "MIT license"
-		url			= "http://www.yvansoftware.be"
+		url		= "http://www.yvansoftware.be"
 		description	= "Git support for the Version Control add-in"
 		category	= "Version Control"
-		version		= "0.1">
+		version		= "0.2">
 		
 		<Runtime>
 			<Import assembly = "MonoDevelop.VersionControl.Git.dll" />
 		</Runtime>
 		
 		<Dependencies>
-			<Addin id = "Core" version = "2.4"/>
-		    <Addin id = "Ide" version = "2.4"/>
-		    <Addin id = "VersionControl" version = "2.4"/>
+		    	<Addin id = "Core" version = "2.4"/>
+		    	<Addin id = "Ide" version = "2.4"/>
+		    	<Addin id = "VersionControl" version = "2.4"/>
 		</Dependencies>
 		
 		<Extension path  = "/MonoDevelop/VersionControl/VersionControlSystems">

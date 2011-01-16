@@ -53,6 +53,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <additionalargs>-unsafe</additionalargs>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

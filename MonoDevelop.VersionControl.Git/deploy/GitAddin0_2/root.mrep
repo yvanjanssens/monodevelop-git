@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Repository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Addin>
+    <Url>MonoDevelop.VersionControl.Git_0.2.mpack</Url>
+    <Addin>
+      <Id>VersionControl.Git</Id>
+      <Namespace>MonoDevelop</Namespace>
+      <Name>Git support for the Version Control add-in</Name>
+      <Version>0.2</Version>
+      <BaseVersion />
+      <Author>Yvan JANSSENS</Author>
+      <Copyright>MIT license</Copyright>
+      <Url>http://www.yvansoftware.be</Url>
+      <Description>Git support for the Version Control add-in</Description>
+      <Category>Version Control</Category>
+      <Dependencies>
+        <AddinDependency>
+          <AddinId>Core</AddinId>
+          <Version>2.4</Version>
+        </AddinDependency>
+        <AddinDependency>
+          <AddinId>Ide</AddinId>
+          <Version>2.4</Version>
+        </AddinDependency>
+        <AddinDependency>
+          <AddinId>VersionControl</AddinId>
+          <Version>2.4</Version>
+        </AddinDependency>
+      </Dependencies>
+      <OptionalDependencies />
+    </Addin>
+  </Addin>
+</Repository>

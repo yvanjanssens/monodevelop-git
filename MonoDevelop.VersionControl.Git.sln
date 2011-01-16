@@ -3,12 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoDevelop.VersionControl.Git", "MonoDevelop.VersionControl.Git\MonoDevelop.VersionControl.Git.csproj", "{DD267FB3-B4F3-485B-8CF9-9CB4E7128F86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitSharp.Core", "..\GitSharp\GitSharp.Core\GitSharp.Core.csproj", "{C46EDD61-C202-465A-93F1-ADE20A83BB59}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoDevelop.VersionControl", "..\monodevelop\main\src\addins\VersionControl\MonoDevelop.VersionControl\MonoDevelop.VersionControl.csproj", "{19DE0F35-D204-4FD8-A553-A19ECE05E24D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitSharp", "..\GitSharp\GitSharp\GitSharp.csproj", "{7311850F-619A-4241-B09F-157792C75FBA}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,23 +13,9 @@ Global
 		{DD267FB3-B4F3-485B-8CF9-9CB4E7128F86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD267FB3-B4F3-485B-8CF9-9CB4E7128F86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD267FB3-B4F3-485B-8CF9-9CB4E7128F86}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C46EDD61-C202-465A-93F1-ADE20A83BB59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C46EDD61-C202-465A-93F1-ADE20A83BB59}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C46EDD61-C202-465A-93F1-ADE20A83BB59}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C46EDD61-C202-465A-93F1-ADE20A83BB59}.Release|Any CPU.Build.0 = Release|Any CPU
-		{19DE0F35-D204-4FD8-A553-A19ECE05E24D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{19DE0F35-D204-4FD8-A553-A19ECE05E24D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{19DE0F35-D204-4FD8-A553-A19ECE05E24D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{19DE0F35-D204-4FD8-A553-A19ECE05E24D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7311850F-619A-4241-B09F-157792C75FBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7311850F-619A-4241-B09F-157792C75FBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7311850F-619A-4241-B09F-157792C75FBA}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = VersionControl.Git\MonoDevelop.VersionControl.Git.csproj
+		StartupItem = MonoDevelop.VersionControl.Git\MonoDevelop.VersionControl.Git.csproj
 		Policies = $0
 		$0.DotNetNamingPolicy = $1
 		$1.DirectoryNamespaceAssociation = None
@@ -61,7 +41,7 @@ Global
 		$6.scope = application/xml
 		$0.StandardHeader = $7
 		$7.Text = 
-		$7.inheritsSet = MITX11License
+		$7.inheritsSet = Apache2License
 		$0.VersionControlPolicy = $8
 		$8.inheritsSet = Mono
 		$0.ChangeLogPolicy = $9
@@ -69,5 +49,8 @@ Global
 		$9.MessageStyle = $10
 		$10.LineAlign = 0
 		$9.inheritsSet = Mono
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
