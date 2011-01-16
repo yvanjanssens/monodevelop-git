@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 
 using MonoDevelop.Components.Commands;
-using MonoDevelop.Core.Gui;
+using MonoDevelop.Core; //.Gui;
+using MonoDevelop.Ide.Gui;
+using MonoDevelop.Ide.ProgressMonitoring;
+using MonoDevelop.Ide;
 
 using GitSharp.Core;
 using GitSharp.Core.Transport;
@@ -40,7 +43,7 @@ namespace MonoDevelop.VersionControl.Git
 			rc.Update (rep.Config);
 			rep.Config.save ();
 			
-			var tn = Transport.Open (rep, originName);
+			Transport tn = Transport.open (rep, originName);
 			FetchResult fetchResult = null;
 			try 
 			{
@@ -57,7 +60,7 @@ namespace MonoDevelop.VersionControl.Git
 				var headId = fetchResult.GetAdvertisedRef (Constants.HEAD);
 				var availableRefs = new List<GitSharp.Core.Ref> ();
 				
-				foreach (GitSharp.Core.Ref r in fetchResult.AdvertisedRefs.Values) 
+				foreach (GitSharp.Core.Ref r in fetchResult.AdvertisedRefs) 
 				{
 					var n = r.Name;
 					if (!n.StartsWith (Constants.R_HEADS))
@@ -81,11 +84,11 @@ namespace MonoDevelop.VersionControl.Git
 			{
 				if (!Constants.HEAD.Equals (branch.Name)) 
 				{
-					rep.WriteSymref (Constants.HEAD, branch.Name);
+					//rep. (Constants.HEAD, branch.Name);
 					GitSharp.Core.Commit commit = rep.MapCommit (branch.ObjectId);
-					var update = rep.UpdateRef (Constants.HEAD);
+					RefUpdate update = rep.UpdateRef (Constants.HEAD);
 					update.NewObjectId = commit.CommitId;
-					update.ForceUpdate ();
+					update.forceUpdate ();
 					
 					var index = new GitIndex (rep);
 					var tree = commit.TreeEntry;

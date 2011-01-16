@@ -5,11 +5,9 @@
     <target-gtk-version>2.12</target-gtk-version>
   </configuration>
   <import>
-    <widget-library name="..\..\..\..\Program Files (x86)\MonoDevelop\bin\MonoDevelop.Core.Gui.dll" />
-    <widget-library name="..\..\..\..\Program Files (x86)\MonoDevelop\bin\MonoDevelop.Ide.dll" />
-    <widget-library name="..\..\..\..\Program Files (x86)\MonoDevelop\bin\MonoDevelop.Components.dll" />
-    <widget-library name="..\..\..\monodevelop\main\build\AddIns\VersionControl\MonoDevelop.VersionControl.dll" />
-    <widget-library name="..\bin\Debug\MonoDevelop.VersionControl.Git.dll" internal="true" />
+    <widget-library name="MonoDevelop.VersionControl, Version=2.4.0.0, Culture=neutral" />
+    <widget-library name="MonoDevelop.Ide, Version=2.4.0.0, Culture=neutral" />
+    <widget-library name="../bin/Debug/MonoDevelop.VersionControl.Git.dll" internal="true" />
   </import>
   <widget class="Gtk.Dialog" id="MonoDevelop.VersionControl.Git.CloneRepositoryDialog" design-size="377 169">
     <property name="MemberName" />
@@ -58,6 +56,7 @@
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">True</property>
+                <property name="InvisibleChar">●</property>
               </widget>
               <packing>
                 <property name="TopAttach">1</property>
@@ -80,6 +79,7 @@
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">True</property>
+                <property name="InvisibleChar">●</property>
               </widget>
               <packing>
                 <property name="LeftAttach">1</property>
